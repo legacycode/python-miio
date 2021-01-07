@@ -78,6 +78,8 @@ class HuizuoStatus:
 class Huizuo(MiotDevice):
     """A support for Huizuo PIS123."""
 
+    mapping = _MAPPING
+
     def __init__(
         self,
         ip: str = None,
@@ -87,7 +89,7 @@ class Huizuo(MiotDevice):
         lazy_discover: bool = True,
         model: str = MODEL_HUIZUO_PIS123,
     ) -> None:
-        super().__init__(_MAPPING, ip, token, start_id, debug, lazy_discover)
+        super().__init__(ip, token, start_id, debug, lazy_discover)
 
         if model in MODELS_SUPPORTED:
             self.model = model
